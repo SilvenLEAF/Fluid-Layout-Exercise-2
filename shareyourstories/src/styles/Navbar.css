@@ -1,0 +1,16 @@
+
+.sidenav-trigger{
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.sidenav-trigger > .ham > div {
+  height: 3px;
+  width: 30px;
+  background-color: #fff;
+
+  margin-top: 7px;
+  border-radius: 30px;
+}
