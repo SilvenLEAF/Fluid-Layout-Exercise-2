@@ -16,7 +16,7 @@ function StoryDetails(props) {
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, dolorem ullam blanditiis fugit voluptate animi illum odio impedit unde inventore. Optio nisi veniam qui ab ex, officia animi amet incidunt quia provident, magnam sit tenetur eius consequuntur iure est nobis numquam vero quod nemo tempora. Culpa molestiae esse qui numquam, distinctio, cupiditate dolores et earum quidem tenetur iste ut totam ex accusamus consectetur beatae necessitatibus officia delectus possimus suscipit. Eveniet asperiores aut obcaecati eaque sint! Asperiores numquam soluta quas tempora. Expedita nostrum excepturi delectus a voluptates rerum, quasi voluptate fugiat laudantium, autem earum aspernatur eligendi itaque consequuntur dignissimos, nam similique?</p>
     </div>
     <div className="card-action">
-      <a href="#">Go to Home</a>
+      <div>Go to Home</div>
     </div>
   </div>
   )
