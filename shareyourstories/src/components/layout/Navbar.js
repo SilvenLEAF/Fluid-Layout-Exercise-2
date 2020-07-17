@@ -8,7 +8,7 @@ import SignedOutLinks from './SignedOutLinks'
 
 function Navbar() {
   return (
-    <nav className="nav-wraper green darken-4">
+    <nav className="nav-wraper purple darken-3">
       <div className="container">
 
       <Link to= "/" className= "brand-logo">Our Stories</Link>
