@@ -7,8 +7,8 @@ import SignedOutLinks from './SignedOutLinks'
 import { connect } from 'react-redux'
 
 
-function Navbar({ auth }) {
-  const links = auth.uid ? <SignedInLinks/> : <SignedOutLinks/>;
+function Navbar({ auth, profile }) {
+  const links = auth.uid ? <SignedInLinks profile= { profile } /> : <SignedOutLinks/>;
   console.log(auth)
   return (
     <nav className="nav-wraper purple darken-3">
@@ -29,7 +29,7 @@ function Navbar({ auth }) {
       </ul>
 
       <ul className="right hide-on-large-only">
-        { auth.uid ? <li><NavLink to="/" className= "btn-floating pink pulse center">FZ</NavLink></li> : null }
+        { auth.uid ? <li><NavLink to="/" className= "btn-floating pink pulse center">{ profile.initials }</NavLink></li> : null }
       </ul>
 
       <ul className="sidenav" id="mobile-nav">
@@ -44,7 +44,8 @@ function Navbar({ auth }) {
 const mapStateToProps = (state) =>{
   console.log(state);
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 

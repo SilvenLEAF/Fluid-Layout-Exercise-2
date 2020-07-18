@@ -11,7 +11,7 @@ function SignedInLinks(props) {
       <li><NavLink to="/create">Create Story</NavLink></li>
       <li onClick= { props.signOut }><NavLink to="/signin">Log Out</NavLink></li>
       <li className = "hide-on-large-only"><NavLink to="/about">About Us</NavLink></li>
-      <li><NavLink to="/" className= "btn-floating pink pulse center hide-on-med-and-down">FZ</NavLink></li>
+      <li><NavLink to="/" className= "btn-floating pink pulse center hide-on-med-and-down">{ props.profile.initials }</NavLink></li>
     </>
   )
 }
