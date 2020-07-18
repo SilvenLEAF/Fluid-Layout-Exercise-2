@@ -1,6 +1,32 @@
-.my-profile-image-holder {
-  height: 55px; 
+#my-water-color-profile-holder{
+  font-size: 100px;
+  font-weight: bold;
+  position: relative;
+  left: -25px;
+  color: rgba(251,210,224,0.7);
+  z-index: -1;
+  text-transform: uppercase;
 }
+#my-water-color-profile{
+  position: absolute;
+  top: -25px;
+}
+.my-profile-content{
+  font-size: 120%;
+}
+.my-profile-label{
+  padding-left: 20px;
+  color: #a00;
+  font-weight: bold;
+}
+#extra-content{
+  margin-top: 50px;
+}
+
+#my-profile-info{
+  margin-top: 50px;
+}
+
 .my-profile-image {
   width: 50px;
   height: 50px;
@@ -11,5 +37,12 @@
 
 p{
   text-align: justify;
-  text-indent: 25px;
+  text-indent: 100px;
+}
+
+
+
+.my-profile-hello{
+  font-weight: bold;
+  font-size: 130%;
 }

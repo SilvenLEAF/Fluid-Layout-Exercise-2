@@ -1,12 +1,27 @@
-html{
-  min-height: 100%;
+:root{
+  --footer-height: 125px;
+  --wrapper-margin-bottom: -125px;
 }
-body {
-  min-height: 100%;
+body {  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Dosis, Verdana, Geneva, Tahoma, sans-serif;
   
   background-color: rgba(233,30,99,0.1);
+}
+
+.my-wrapper{
+  min-height: 100vh;
+  margin-bottom: var(--wrapper-margin-bottom);
+
+}
+.my-wrapper:after, .my-footer-wrapper{
+  display: block;
+  content: "";
+  
+  height: var(--footer-height);
+}
+.my-footer-wrapper{
+  overflow: hidden;
 }

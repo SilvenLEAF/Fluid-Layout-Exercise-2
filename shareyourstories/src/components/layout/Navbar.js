@@ -11,10 +11,10 @@ function Navbar({ auth, profile }) {
   const links = auth.uid ? <SignedInLinks profile= { profile } /> : <SignedOutLinks/>;
   console.log(auth)
   return (
-    <nav className="nav-wraper purple darken-3">
+    <nav className="nav-wraper pink darken-4">
       <div className="container">
 
-      <Link to= "/" className= "brand-logo">Our Stories</Link>
+      <Link to= "/" className= "brand-logo"><span className="fa fa-book"></span>Our Stories</Link>
       <div className="sidenav-trigger hide-on-large-only" data-target= "mobile-nav">
         <div className="ham">
           <div className="ham-t"></div>

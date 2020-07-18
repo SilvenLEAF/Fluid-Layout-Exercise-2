@@ -2,11 +2,11 @@ import React from 'react'
 import './../../styles/StorySummary.css';
 import moment from 'moment';
 
-function StorySummary({ image, story }) {
+function StorySummary({ story }) {
   return (
       <div className="card z-depth-2">
         <div className="card-image">
-          <img src={ image } alt=""/>
+          <img src={ story.imgUrl } alt=""/>
           <button className="halfway-fab btn-floating pink pulse">
             <i className="material-icons">favorite</i>
           </button>

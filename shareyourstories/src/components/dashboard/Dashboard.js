@@ -8,17 +8,20 @@ import { Redirect } from 'react-router-dom';
 
 export class Dashboard extends Component {
   render() {
-    const { stories, auth } = this.props;
+    const { stories, auth, profile } = this.props;
       if (!auth.uid) return <Redirect to= "/signin" />;
 
     return (
       <>
         <div className="container">
-          <h1>Hey there!!</h1>
         </div>
-        <div className="row container">
-          <div className="col s12 m6"><StoryList stories= { stories } /></div>
-          <div className="col s12 m6"><Profile/></div>
+        <div className="row container">                   
+          <div className="col s12 m6"> 
+            <h1>Hey there!!</h1>
+            <StoryList stories= { stories } />
+          </div>
+
+          <div className="col s12 m6"><Profile profile= { profile } auth= { auth } /></div>
         </div>
       </>
     )
@@ -28,7 +31,8 @@ export class Dashboard extends Component {
 const mapStateToProps = (state)=>{
   return {
     stories: state.firestore.ordered.stories,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 

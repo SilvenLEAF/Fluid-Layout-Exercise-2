@@ -14,7 +14,7 @@ function StoryDetails({ story, auth }) {
     <div className="container">
       <div className="card z-depth-2 my-deatails-card">
         <div className="card-image">
-          <img src={ image } alt=""/>
+          <img src={ story.imgUrl } alt=""/>
           <button className="halfway-fab btn-floating pink pulse">
             <i className="material-icons">favorite</i>
           </button>

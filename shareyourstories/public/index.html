@@ -67,7 +67,10 @@
       
       $(document).ready(()=> {
 
-        $('.sidenav').sidenav();
+        $('.sidenav').sidenav()
+          .on('click tap', 'li', () =>{
+            $('.sidenav').sidenav('close')
+          });
         $('.materialboxed').materialbox();
         
       })
