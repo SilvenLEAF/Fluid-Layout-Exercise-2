@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './../../styles/Form.css'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { signUp } from '../../store/actions/authActions'
 
 export class SignUp extends Component {
   state = {
@@ -17,10 +18,10 @@ export class SignUp extends Component {
   }
   handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(this.state)
+    this.props.signUp(this.state);
   }
   render() {    
-    const { auth } = this.props;
+    const { auth, authError } = this.props;
     if(auth.uid) return <Redirect to= "/" />
 
     return (
@@ -56,6 +57,9 @@ export class SignUp extends Component {
           <button className="btn pink waves-effect waves-light">
             Sign Up
           </button>
+          <p className="red-text center">
+            { authError ? authError : null }
+          </p>
         </div>
 
       </form>
@@ -66,8 +70,17 @@ export class SignUp extends Component {
 
 const mapStateToProps = (state) =>{
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   }
 }
 
-export default connect(mapStateToProps)(SignUp)
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    signUp: (newUser)=>{
+      dispatch(signUp(newUser))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
