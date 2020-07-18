@@ -4,6 +4,8 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
+
 
 function StoryDetails({ story, auth }) {
   const image = "/images/Story-Book.svg";
@@ -23,7 +25,7 @@ function StoryDetails({ story, auth }) {
         </div>
         <div className="card-action">
           <p className= "grey-text"> Posted by { story.authorFirstName } { story.authorLastName }</p>
-          <p className= "grey-text">{ story.createdAt.toDate().toString() }</p>
+          <p className= "grey-text">{ moment(story.createdAt.toDate()).calendar() }</p>
         </div>        
       </div>        
     </div>

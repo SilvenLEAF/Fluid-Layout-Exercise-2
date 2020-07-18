@@ -1,6 +1,6 @@
 import React from 'react'
-import './../../styles/StorySummary.css'
-
+import './../../styles/StorySummary.css';
+import moment from 'moment';
 
 function StorySummary({ image, story }) {
   return (
@@ -17,7 +17,7 @@ function StorySummary({ image, story }) {
         </div>
         <div className="card-action">
           <p className= "grey-text"> Posted by { story.authorFirstName } { story.authorLastName }</p>
-          <p className= "grey-text">{ story.createdAt.toDate().toString() }</p>
+          <p className= "grey-text">{ moment(story.createdAt.toDate()).calendar() }</p>
         </div>
       </div>
   )
