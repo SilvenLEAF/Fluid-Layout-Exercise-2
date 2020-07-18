@@ -1,12 +1,9 @@
 import React from 'react'
 import './../../styles/StorySummary.css'
-import { Link } from 'react-router-dom'
 
 
-function StorySummary({ image }) {
+function StorySummary({ image, story }) {
   return (
-
-    <Link to="/story/12345">
       <div className="card z-depth-2">
         <div className="card-image">
           <img src={ image } alt=""/>
@@ -15,14 +12,14 @@ function StorySummary({ image }) {
           </button>
         </div>
         <div className="card-content">
-          <div className="card-title">My Story</div>
-          <p className= "truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, dolorem ullam blanditiis fugit voluptate animi illum odio impedit unde inventore. Optio nisi veniam qui ab ex, officia animi amet incidunt quia provident, magnam sit tenetur eius consequuntur iure est nobis numquam vero quod nemo tempora. Culpa molestiae esse qui numquam, distinctio, cupiditate dolores et earum quidem tenetur iste ut totam ex accusamus consectetur beatae necessitatibus officia delectus possimus suscipit. Eveniet asperiores aut obcaecati eaque sint! Asperiores numquam soluta quas tempora. Expedita nostrum excepturi delectus a voluptates rerum, quasi voluptate fugiat laudantium, autem earum aspernatur eligendi itaque consequuntur dignissimos, nam similique?</p>
+          <div className="card-title">{ story.title }</div>
+  <p className= "truncate">{ story.content }</p>
         </div>
         <div className="card-action">
-          <div>Go to Home</div>
+          <p className= "grey-text"> Posted by { story.authorFirstName } { story.authorLastName }</p>
+          <p className= "grey-text">{ story.createdAt.toDate().toString() }</p>
         </div>
       </div>
-    </Link>
   )
 }
 

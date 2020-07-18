@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './../../styles/Form.css'
+import { connect } from 'react-redux'
+import { createStory } from '../../store/actions/storyActions'
 
 export class CreateStory extends Component {
   state = {
@@ -13,7 +15,7 @@ export class CreateStory extends Component {
   }
   handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(this.state)
+    this.props.createStory(this.state)
   }
   render() {
     return (
@@ -46,4 +48,12 @@ export class CreateStory extends Component {
   }
 }
 
-export default CreateStory
+
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    createStory: (story)=>{
+      dispatch(createStory(story))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(CreateStory)

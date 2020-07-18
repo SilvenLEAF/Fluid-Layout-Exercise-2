@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import StoryList from '../stories/StoryList'
 import Profile from './Profile'
 import { connect } from 'react-redux'
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
 export class Dashboard extends Component {
   render() {
@@ -9,10 +11,10 @@ export class Dashboard extends Component {
     return (
       <>
         <div className="container">
-          <h1>{ stories[2].title }</h1>
+          <h1>Hey there!!</h1>
         </div>
         <div className="row container">
-          <div className="col s12 m6"><StoryList/></div>
+          <div className="col s12 m6"><StoryList stories= { stories } /></div>
           <div className="col s12 m6"><Profile/></div>
         </div>        
       </>
@@ -22,8 +24,13 @@ export class Dashboard extends Component {
 
 const mapStateToProps = (state)=>{
   return {
-    stories: state.story.stories
+    stories: state.firestore.ordered.stories
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'stories' }
+  ])
+)(Dashboard)

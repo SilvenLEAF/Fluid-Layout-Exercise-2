@@ -1,12 +1,17 @@
 import React from 'react'
 import StorySummary from './StorySummary'
+import { Link } from 'react-router-dom'
 
-function StoryList() {
+function StoryList({ stories }) {
   return (
     <>
-      <StorySummary className="" image= { "./images/Story-Book.svg" } />
-      <StorySummary className="" image= { "./images/Love-Hearts.svg" } />
-      <StorySummary className="" image= { "./images/Story-Book.svg" } />
+      { stories && stories.map( story => {
+        return (
+          <Link to= { "/story/" + story.id } key= { story.id } >
+            <StorySummary className="" image= { "./images/Story-Book.svg" } story= { story } /> 
+          </Link>
+        )
+      }) }  
     </>
   )
 }

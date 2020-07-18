@@ -1,13 +1,17 @@
 const initState = {
-  stories: [
-    { title: 'Kungfu Panda 7', content: 'The Legend of Awesomeness!!!'},
-    { title: 'Ferdinand II', content: 'Another tour to Spain!!!'},
-    { title: 'Frozen 4', content: 'The Queen of Ice!!!'}
-  ]
+  
 }
 
 const storyReducer = (state = initState, action) => {
   switch (action.type){
+    case 'CREATE_STORY':
+      console.log('created story', action.story);
+      return state;
+
+    case 'CREATE_STORY_ERROR':
+      console.log('story creating failed', action.err);
+      return state;
+
     default:
       return state;
   }
