@@ -4,9 +4,12 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import { connect } from 'react-redux'
 
 
-function Navbar() {
+function Navbar({ auth }) {
+  const links = auth.uid ? <SignedInLinks/> : <SignedOutLinks/>;
+  console.log(auth)
   return (
     <nav className="nav-wraper purple darken-3">
       <div className="container">
@@ -22,17 +25,15 @@ function Navbar() {
       
 
       <ul className="right hide-on-med-and-down">
-        <SignedOutLinks/>
-        <SignedInLinks/>
+        { links }
       </ul>
 
       <ul className="right hide-on-large-only">
-        <li><NavLink to="/" className= "btn-floating pink pulse center">FZ</NavLink></li>
+        { auth.uid ? <li><NavLink to="/" className= "btn-floating pink pulse center">FZ</NavLink></li> : null }
       </ul>
 
       <ul className="sidenav" id="mobile-nav">
-        <SignedOutLinks/>
-        <SignedInLinks/>
+        { links }
       </ul>
 
       </div>
@@ -40,4 +41,11 @@ function Navbar() {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) =>{
+  console.log(state);
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)

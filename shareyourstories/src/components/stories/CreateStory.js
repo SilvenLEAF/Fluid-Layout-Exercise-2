@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './../../styles/Form.css'
 import { connect } from 'react-redux'
 import { createStory } from '../../store/actions/storyActions'
+import { Redirect } from 'react-router-dom'
 
 export class CreateStory extends Component {
   state = {
@@ -15,9 +16,12 @@ export class CreateStory extends Component {
   }
   handleSubmit = (e) =>{
     e.preventDefault();
-    this.props.createStory(this.state)
+    this.props.createStory(this.state);
+    this.props.history.push('/');
   }
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to= "/signin" />
     return (
       <div className="container">
         
@@ -48,6 +52,11 @@ export class CreateStory extends Component {
   }
 }
 
+const mapStateToProps = (state)=>{
+  return{
+    auth: state.firebase.auth
+  }
+}
 
 const mapDispatchToProps = (dispatch)=>{
   return{
@@ -56,4 +65,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
   }
 }
-export default connect(null, mapDispatchToProps)(CreateStory)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateStory)

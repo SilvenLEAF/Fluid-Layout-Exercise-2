@@ -3,9 +3,11 @@ import './../../styles/StoryDetails.css'
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 
-function StoryDetails({ story }) {
+function StoryDetails({ story, auth }) {
   const image = "/images/Story-Book.svg";
+  if (!auth.uid) return <Redirect to= "/signin" />
   return (
     <div className="container">
       <div className="card z-depth-2 my-deatails-card">
@@ -34,7 +36,8 @@ const mapStateToProps = (state, ownProps) => {
   const story = stories ? stories[id] : null;
 
   return{
-    story: story
+    story: story,
+    auth: state.firebase.auth
   }
 }
 

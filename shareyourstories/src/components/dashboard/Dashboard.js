@@ -4,10 +4,13 @@ import Profile from './Profile'
 import { connect } from 'react-redux'
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 
 export class Dashboard extends Component {
   render() {
-    const { stories } = this.props;
+    const { stories, auth } = this.props;
+      if (!auth.uid) return <Redirect to= "/signin" />;
+
     return (
       <>
         <div className="container">
@@ -16,7 +19,7 @@ export class Dashboard extends Component {
         <div className="row container">
           <div className="col s12 m6"><StoryList stories= { stories } /></div>
           <div className="col s12 m6"><Profile/></div>
-        </div>        
+        </div>
       </>
     )
   }
@@ -24,7 +27,8 @@ export class Dashboard extends Component {
 
 const mapStateToProps = (state)=>{
   return {
-    stories: state.firestore.ordered.stories
+    stories: state.firestore.ordered.stories,
+    auth: state.firebase.auth
   }
 }
 
