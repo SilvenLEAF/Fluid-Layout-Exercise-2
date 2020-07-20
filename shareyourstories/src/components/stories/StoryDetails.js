@@ -7,8 +7,7 @@ import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 
 
-function StoryDetails({ story, auth }) {
-  const image = "/images/Story-Book.svg";
+function StoryDetails({ story, auth }) {  
   if (!auth.uid) return <Redirect to= "/signin" />
   return (
     <div className="container">

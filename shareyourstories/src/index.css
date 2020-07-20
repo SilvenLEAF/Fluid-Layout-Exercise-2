@@ -9,6 +9,7 @@ body {
   font-family: Dosis, Verdana, Geneva, Tahoma, sans-serif;
   
   background-color: rgba(233,30,99,0.1);
+  user-select: none;
 }
 
 .my-wrapper{
