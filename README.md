@@ -6,4 +6,4 @@ HERE I test out every new thing I learn,  and practice the concepts I'm weak at.
 
 
 ## **Important React Points:**
-*React, Contexts, Hooks, Redux, Framer Motion, React Query*    
+*React, Contexts, Hooks, Redux, Framer Motion, React Query, PWA, Dynamic Charts*    
